@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Upload Urine Strip Image</title>
+</head>
+<body>
+    <h1>Upload Urine Strip Image</h1>
+    <form id="upload-form" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Upload</button>
+    </form>
+
+    <!-- Display image preview -->
+    <div id="image-preview">
+        <img id="preview-img" src="" alt="Image Preview" style="display: none;">
+    </div>
+
+    <script>
+        // JavaScript to display image preview
+        const uploadForm = document.getElementById("upload-form");
+        const imagePreview = document.getElementById("image-preview");
+        const previewImg = document.getElementById("preview-img");
+
+        const fileInput = uploadForm.querySelector("input[type=file]");
+
+        fileInput.addEventListener("change", (e) => {
+            const file = e.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = (e) => {
+                    previewImg.src = e.target.result;
+                    previewImg.style.display = "block";
+                };
+                reader.readAsDataURL(file);
+            } else {
+                previewImg.style.display = "none";
+            }
+        });
+    </script>
+</body>
+</html>

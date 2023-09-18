@@ -1,6 +1,11 @@
 # Urine_strip_color_detector
 A Web Interface that allows users to upload an image of their urine strip and identify the colors on the strip.
 
+## Features
+**Upload Urine Strip Images:** Users can upload images of urine strips using a simple form.
+**Color Analysis:** The app uses OpenCV and scikit-learn's KMeans clustering to analyze the uploaded image and extract the dominant colors.
+**Results Display:** After analysis, the dominant colors are displayed in a user-friendly JSON format on the result page.
+
 ## Requirements
 
 - Python 3.8+
@@ -63,3 +68,9 @@ The app will be accessible at `http://localhost:8000/`.
 ## Usage
 
 - Access the web interface at `http://localhost:8000/` to check the urine color strip.
+- Click on the "Upload Urine Strip Image" button.
+- Select an image of the urine strip and submit the form.
+- The app will analyze the image and display the dominant colors in JSON format.
+
+
+
